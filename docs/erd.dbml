@@ -1,0 +1,118 @@
+// Paste this whole file into https://dbdiagram.io/d
+// Then: Export -> PNG / PDF / SVG
+
+Table users {
+  id bigint [pk, increment]
+  name varchar(255) [not null]
+  email varchar(255) [unique, not null]
+  password varchar(255) [not null]
+  role varchar [note: "enum: admin | alumni"]
+  status varchar [note: "enum: pending | approved | blocked"]
+  verification_document_path varchar(255) [null]
+  email_verified_at timestamp [null]
+  remember_token varchar(100) [null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table profiles {
+  id bigint [pk, increment]
+  user_id bigint [ref: - users.id, unique, not null]
+  first_name varchar(255) [not null]
+  middle_name varchar(255) [null]
+  last_name varchar(255) [not null]
+  graduation_year year [null]
+  current_job varchar(255) [null]
+  industry varchar(255) [null]
+  contact_number varchar(255) [null]
+  bio text [null]
+  profile_picture_url varchar(255) [null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table announcements {
+  id bigint [pk, increment]
+  admin_id bigint [ref: > users.id, not null]
+  title varchar(255) [not null]
+  content text [not null]
+  image_path varchar(255) [null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table events {
+  id bigint [pk, increment]
+  title varchar(255) [not null]
+  description text [not null]
+  event_date datetime [not null]
+  location varchar(255) [not null]
+  image_path varchar(255) [null]
+  archived_at timestamp [null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table event_user {
+  user_id bigint [ref: > users.id]
+  event_id bigint [ref: > events.id]
+  rsvp_at timestamp
+
+  indexes {
+    (user_id, event_id) [pk]
+  }
+}
+
+Table messages {
+  id bigint [pk, increment]
+  sender_id bigint [ref: > users.id, not null]
+  recipient_id bigint [ref: > users.id, not null]
+  body text [not null]
+  read_at timestamp [null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table profile_likes {
+  id bigint [pk, increment]
+  user_id bigint [ref: > users.id, not null]
+  target_user_id bigint [ref: > users.id, not null]
+  created_at timestamp
+  updated_at timestamp
+
+  indexes {
+    (user_id, target_user_id) [unique]
+  }
+}
+
+Table profile_bookmarks {
+  id bigint [pk, increment]
+  user_id bigint [ref: > users.id, not null]
+  target_user_id bigint [ref: > users.id, not null]
+  created_at timestamp
+  updated_at timestamp
+
+  indexes {
+    (user_id, target_user_id) [unique]
+  }
+}
+
+Table pokes {
+  id bigint [pk, increment]
+  sender_id bigint [ref: > users.id, not null]
+  recipient_id bigint [ref: > users.id, not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table app_notifications {
+  id bigint [pk, increment]
+  user_id bigint [ref: > users.id, not null]
+  type varchar(50) [not null]
+  title varchar(255) [not null]
+  body varchar(255) [null]
+  link varchar(255) [null]
+  read_at timestamp [null]
+  created_at timestamp
+  updated_at timestamp
+}

@@ -1,0 +1,13 @@
+flowchart TD
+    A([Start]) --> B[Visitor opens /register page]
+    B --> C[Fill form + upload verification document]
+    C --> D[Submit form]
+    D --> E{Inputs valid?<br/>email, password,<br/>document}
+    E -->|No| F[Show validation errors<br/>and stay on form]
+    F --> Z([End])
+    E -->|Yes| G[Save document to<br/>storage/public/verification]
+    G --> H[Create user record<br/>status = pending<br/>role = alumni]
+    H --> I[Create matching<br/>profile record]
+    I --> J[Auto-login user]
+    J --> K[Redirect to /pending page]
+    K --> Z

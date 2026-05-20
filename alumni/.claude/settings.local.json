@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php --version)",
+      "Bash(php artisan *)",
+      "Bash(php -r 'try { new PDO\\('\\\\''mysql:host=127.0.0.1;port=3306;dbname=AlumniManagementDB'\\\\'', '\\\\''root'\\\\'', '\\\\'''\\\\''\\); echo '\\\\''DB OK'\\\\''; } catch \\(Exception $e\\) { echo '\\\\''DB ERROR: '\\\\'' . $e->getMessage\\(\\); }')",
+      "Bash(npm run *)"
+    ]
+  }
+}

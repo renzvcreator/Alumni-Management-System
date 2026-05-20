@@ -1,0 +1,14 @@
+flowchart TD
+    A([Start]) --> B[Alumnus opens /events page]
+    B --> C[Select an event]
+    C --> D[Click 'RSVP' button]
+    D --> E{Already RSVP'd<br/>to this event?}
+    E -->|Yes| F[Show 'RSVP'd' badge<br/>no action taken]
+    F --> Z([End])
+    E -->|No| G{Event archived<br/>or past date?}
+    G -->|Yes| H[Block RSVP<br/>show error]
+    H --> Z
+    G -->|No| I[Insert row in event_user<br/>user_id, event_id,<br/>rsvp_at = now]
+    I --> J[Dashboard 'My RSVPs'<br/>counter increases by 1]
+    J --> K[Redirect to event page<br/>with confirmation badge]
+    K --> Z

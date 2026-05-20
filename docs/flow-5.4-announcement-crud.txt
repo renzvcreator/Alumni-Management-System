@@ -1,0 +1,13 @@
+flowchart TD
+    A([Start]) --> B[Admin opens /admin/announcements]
+    B --> C[Click 'New Announcement']
+    C --> D[Fill title, content,<br/>optional cover image]
+    D --> E[Click 'Save']
+    E --> F{Inputs valid?}
+    F -->|No| G[Show validation errors]
+    G --> Z([End])
+    F -->|Yes| H[Store image to disk<br/>if uploaded]
+    H --> I[Insert row in announcements<br/>admin_id = current admin]
+    I --> J[Redirect to list with<br/>success message]
+    J --> K[Alumni see new announcement<br/>on /announcements and dashboard]
+    K --> Z

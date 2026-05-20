@@ -1,0 +1,13 @@
+flowchart TD
+    A([Start]) --> B[Admin opens /admin/users<br/>filter: pending]
+    B --> C[Select a pending alumnus]
+    C --> D[Review the uploaded<br/>verification document]
+    D --> E{Document valid?}
+    E -->|Yes| F[Click 'Approve']
+    F --> G[Update user status<br/>to 'approved']
+    G --> H[User can now log in<br/>as an alumnus]
+    H --> Z([End])
+    E -->|No| I[Click 'Reject']
+    I --> J[Delete verification<br/>document from storage]
+    J --> K[Delete user record]
+    K --> Z

@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan *)",
+      "Bash(composer dump-autoload *)",
+      "Bash(where mysql *)",
+      "Bash(where php *)",
+      "Bash(\"D:/renzxammp/mysql/bin/mysql.exe\" -u root -e \"CREATE DATABASE IF NOT EXISTS AlumniManagementDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; SHOW DATABASES LIKE 'AlumniManagementDB';\")",
+      "Bash(\"D:/renzxammp/mysql/bin/mysql.exe\" -u root AlumniManagementDB -e \"SELECT id,email,role,status FROM users;\")",
+      "Bash(npm run *)",
+      "Bash(curl -sSI http://127.0.0.1:8765/)",
+      "Bash(curl -sSI http://127.0.0.1:8765/login)",
+      "Bash(curl -sSI http://127.0.0.1:8765/directory)",
+      "Bash(curl -sS http://127.0.0.1:8765/)",
+      "Bash(kill %1)",
+      "Bash(awk '{print $2}')",
+      "Bash(xargs -r kill)",
+      "Bash(curl -sS -c /tmp/c.txt http://127.0.0.1:8765/login)",
+      "Read(//tmp/**)",
+      "Bash(awk '{print $7}')",
+      "Bash(curl -sS -b /tmp/c.txt -c /tmp/c.txt -I http://127.0.0.1:8765/notifications)",
+      "Bash(curl -sS -b /tmp/c.txt -c /tmp/c.txt -I http://127.0.0.1:8765/bookmarks)",
+      "Bash(php -l app/Http/Controllers/MessageController.php app/Http/Controllers/ProfileInteractionController.php app/Http/Controllers/NotificationController.php app/Http/Controllers/DirectoryController.php app/Http/Controllers/Admin/AnnouncementController.php app/Http/Controllers/Admin/EventController.php app/Providers/AppServiceProvider.php)",
+      "Bash(php -l app/Models/AppNotification.php app/Http/Controllers/MessageController.php app/Http/Controllers/ProfileInteractionController.php)",
+      "Bash(php -l app/Http/Controllers/MessageController.php)",
+      "Bash(php -l app/Http/Controllers/ProfileInteractionController.php)",
+      "Bash(\"D:/renzxammp/mysql/bin/mysql.exe\" -u root -e \"SELECT 1;\")",
+      "Bash(curl -sS -I http://127.0.0.1:8000)",
+      "Bash(curl -sS http://127.0.0.1:8000)",
+      "Bash(php -l app/Http/Controllers/DashboardController.php)",
+      "Bash(php -l app/Http/Controllers/Auth/RegisteredUserController.php)",
+      "Bash(php -l app/Http/Controllers/Admin/UserManagementController.php)",
+      "Bash(php -l app/Http/Controllers/DirectoryController.php)",
+      "Bash(php -l app/Http/Controllers/EventController.php)"
+    ]
+  }
+}
