@@ -82,7 +82,7 @@
                                         <span class="text-base font-semibold text-gray-900">Notifications</span>
                                     </div>
                                     <div class="max-h-96 min-h-[180px] overflow-y-auto divide-y divide-gray-100">
-                                        @forelse ($navRecentNotifications as $n)
+                                        @forelse ($navRecentNotifications ?? [] as $n)
                                             <a href="{{ $n->link ?? route('notifications.index') }}" class="flex items-start gap-3 px-5 py-4 hover:bg-indigo-50 transition {{ $n->read_at ? '' : 'bg-indigo-50/60' }}">
                                                 @php
                                                     $navColorMap = [
