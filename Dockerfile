@@ -34,8 +34,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
-# Copy Laravel app
-COPY . .
+# Copy Laravel app from alumni directory
+COPY alumni/ .
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 # Install frontend dependencies and build assets
